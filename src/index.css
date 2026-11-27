@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', system-ui, sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  body {
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  .font-mono-num {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes floatCloud {
+  0%, 100% {
+    transform: translateX(0px) translateY(0px);
+  }
+  50% {
+    transform: translateX(18px) translateY(-4px);
+  }
+}
+
+@keyframes floatCloudSlow {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-24px);
+  }
+}
+
+@keyframes gentleBob {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes starPop {
+  0% {
+    transform: scale(0.5) rotate(-12deg);
+    opacity: 0;
+  }
+  65% {
+    transform: scale(1.15) rotate(6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes clockSuccessGlow {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 0 16px rgba(16, 185, 129, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+@keyframes clockWrongShake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-6px);
+  }
+  45% {
+    transform: translateX(6px);
+  }
+  70% {
+    transform: translateX(-4px);
+  }
+}
+
+.animate-cloud {
+  animation: floatCloud 9s ease-in-out infinite;
+}
+
+.animate-cloud-slow {
+  animation: floatCloudSlow 13s ease-in-out infinite;
+}
+
+.animate-bob {
+  animation: gentleBob 3.6s ease-in-out infinite;
+}
+
+.animate-star-pop {
+  animation: starPop 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-clock-success {
+  animation: clockSuccessGlow 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-clock-wrong {
+  animation: clockWrongShake 0.38s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cloud,
+  .animate-cloud-slow,
+  .animate-bob,
+  .animate-star-pop,
+  .animate-clock-success,
+  .animate-clock-wrong {
+    animation: none !important;
+  }
+}
